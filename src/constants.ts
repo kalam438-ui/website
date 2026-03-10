@@ -57,6 +57,38 @@ export const PRODUCTS: Product[] = [
     image: 'https://images.unsplash.com/photo-1628592102751-ba83b0314276?q=80&w=800',
     category: 'gypsum',
   },
+  {
+    id: '8',
+    name: 'Diamond Pattern Ceiling',
+    description: 'Intricate geometric diamond patterns for master bedrooms.',
+    price: 'Contact for Quote',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=801',
+    category: 'gypsum',
+  },
+  {
+    id: '9',
+    name: 'Circular Gypsum Dome',
+    description: 'Majestic circular dome design for grand entrances.',
+    price: 'OMR 450.000',
+    image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=801',
+    category: 'gypsum',
+  },
+  {
+    id: '10',
+    name: 'Minimalist Floating Ceiling',
+    description: 'Ultra-modern floating effect with shadow gap lighting.',
+    price: 'OMR 15.000 / sqm',
+    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=801',
+    category: 'gypsum',
+  },
+  {
+    id: '11',
+    name: 'Custom Wall Niche',
+    description: 'Decorative gypsum wall niches with spotlighting.',
+    price: 'OMR 35.000 / unit',
+    image: 'https://images.unsplash.com/photo-1628592102751-ba83b0314276?q=80&w=801',
+    category: 'gypsum',
+  },
 ];
 
 export const PROJECTS: DesignProject[] = [
@@ -79,6 +111,20 @@ export const PROJECTS: DesignProject[] = [
     title: 'Royal Gypsum Hall',
     description: 'Grand hall gypsum design with classical motifs.',
     image: 'https://picsum.photos/seed/hall1/800/600',
+    type: 'gypsum',
+  },
+  {
+    id: '4',
+    title: 'Luxury Apartment Ceiling',
+    description: 'Contemporary gypsum work for a penthouse apartment.',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=802',
+    type: 'gypsum',
+  },
+  {
+    id: '5',
+    title: 'Modern Majlis Gypsum',
+    description: 'Traditional majlis with a modern gypsum ceiling twist.',
+    image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=802',
     type: 'gypsum',
   },
 ];

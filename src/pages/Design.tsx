@@ -32,7 +32,7 @@ export const Design: React.FC = () => {
         </div>
 
         {/* Portfolio Section */}
-        <div className="space-y-32">
+        <div className="space-y-32 mb-32">
           {PROJECTS.map((project, i) => (
             <motion.div 
               key={project.id}
@@ -69,6 +69,35 @@ export const Design: React.FC = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Gypsum Gallery Section */}
+        <div className="py-24 border-t border-emerald-100">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-black text-emerald-950 tracking-tight mb-4">Our All Designs</h2>
+            <p className="text-emerald-800/60 max-w-2xl mx-auto">A quick look at our specialized gypsum board decorative works.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=400',
+              'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=400',
+              'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=400',
+              'https://images.unsplash.com/photo-1628592102751-ba83b0314276?q=80&w=400'
+            ].map((img, i) => (
+              <motion.div 
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                className="aspect-square rounded-3xl overflow-hidden shadow-lg"
+              >
+                <img src={img} alt="Gypsum Work" className="w-full h-full object-cover" />
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <a href="/gypsum" className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-950 text-white rounded-full font-bold hover:bg-emerald-900 transition-colors">
+              Explore Full Gypsum Gallery <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
