@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { PROJECTS } from '../constants';
-import { Palette, Layers, Layout, ArrowRight } from 'lucide-react';
+import { Palette, Layers, Layout, ArrowRight, Image as ImageIcon } from 'lucide-react';
 
 export const Design: React.FC = () => {
+  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch('/api/images');
+        if (response.ok) {
+          const data = await response.json();
+          setUploadedImages(data);
+        }
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+    fetchImages();
+  }, []);
+
   return (
     <div className="py-20 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,6 +30,35 @@ export const Design: React.FC = () => {
             From concept to completion, we create spaces that inspire.
           </p>
         </div>
+
+        {/* Customer Inspiration Section */}
+        {uploadedImages.length > 0 && (
+          <div className="py-24 border-t border-emerald-100">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-2xl mb-6">
+                <ImageIcon className="w-8 h-8 text-emerald-600" />
+              </div>
+              <h2 className="text-4xl font-black text-emerald-950 tracking-tight mb-4">Customer Inspiration</h2>
+              <p className="text-emerald-800/60 max-w-2xl mx-auto">Designs shared by our clients for their upcoming projects.</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+              {uploadedImages.map((img, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileHover={{ y: -5 }}
+                  className="aspect-square rounded-3xl overflow-hidden shadow-md border border-emerald-50 group relative"
+                >
+                  <img src={img} alt={`Uploaded inspiration ${i}`} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-emerald-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="text-white text-xs font-bold bg-emerald-600 px-3 py-1 rounded-full">New Idea</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Service Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">

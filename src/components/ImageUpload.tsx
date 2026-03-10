@@ -19,14 +19,27 @@ export const ImageUpload: React.FC = () => {
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!selectedImage) return;
     setIsUploading(true);
-    // Simulate upload
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ image: selectedImage, name: 'user-design' }),
+      });
+      if (response.ok) {
+        setUploadSuccess(true);
+      } else {
+        console.error('Upload failed');
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    } finally {
       setIsUploading(false);
-      setUploadSuccess(true);
-    }, 2000);
+    }
   };
 
   const clearImage = () => {
